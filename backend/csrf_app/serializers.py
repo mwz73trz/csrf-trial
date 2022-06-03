@@ -7,9 +7,6 @@ class NotesSerializer(serializers.ModelSerializer):
         model = Notes
         fields = ['id', 'title', 'description', 'creator']
 
-    def perform_create(self, serializer):
-        serializer.save(creator=self.request.user)
-
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
