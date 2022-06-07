@@ -20,7 +20,6 @@ function NoteDetailPage(props) {
     if (!note) {
       return null;
     }
-
     return <Note note={note} />;
   };
 

@@ -15,9 +15,16 @@ function HomePage(props) {
     setNotes(data ? data : []);
   };
 
+  const removeNote = (deletedNoteId) => {
+    const newNotes = notes.filter((note, index) => {
+      return note.id !== deletedNoteId;
+    });
+    setNotes(newNotes);
+  };
+
   const renderNotes = () => {
     return notes.map((note, index) => {
-      return <Notes key={index} note={note} />;
+      return <Notes key={index} note={note} removeNote={removeNote} />;
     });
   };
 

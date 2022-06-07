@@ -41,4 +41,10 @@ notesAPI.createNote = async (noteData) => {
   );
 };
 
+notesAPI.deleteNote = async (noteId) => {
+  return await apiHelpers.tryCatchFetch(() =>
+    axios.delete(`${BASE_URL}notes/${noteId}/`, apiHelpers.getCsrfConfig())
+  );
+};
+
 export default notesAPI;
